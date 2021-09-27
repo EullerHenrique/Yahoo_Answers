@@ -1,0 +1,38 @@
+<%- include ('partials/header.ejs') %>
+
+<body>
+
+    <%- include ('partials/navbar.ejs') %>
+
+    <div class="container"> 
+
+        <% questions.forEach((question)=>{ %>
+
+            <div class="row d-flex justify-content-center">
+            
+                    <div class="col-12 col-md-6">
+
+                        <div class="card mb-4" style="border-radius: 64px;">
+
+                            <div class="card-body mx-4 mt-2 text-center">
+                                <h3> <%= question.titulo %></h3>
+                            </div>
+
+                            <div class="card-footer d-flex justify-content-center" style="border-bottom-left-radius: 64px; border-bottom-right-radius: 64px;">
+                                <a href="/question/<%= question.id %>">
+                                <button class="btn btn-primary rounded-pill mx-4">Responder</button>
+                            </a>
+                        </div>
+
+                    </div>
+                                        
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</body>
+
+<%- include ('partials/footer.ejs') %>
+

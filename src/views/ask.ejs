@@ -1,0 +1,33 @@
+<%- include ('partials/header.ejs') %>
+
+<body>
+
+    <%- include ('partials/navbar.ejs') %>
+
+    <div class="container">
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-7">
+                <div class="card" style="border-radius:50px;">
+            
+                    <div class="card-body">
+                        <form method="post" action="/save_question">
+                            <input type="text" placeholder="Qual é a sua dúvida?" class="form-control rounded-pill" name="titulo">
+                            <br>
+                            <textarea placeholder="Alguma informação detalhada? Os detalhes podem ajudas as pessoas a fornecerem melhores respostas" class="form-control" rows="5" name="descricao" style="border-radius: 40px;"></textarea>
+                            <br>
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary rounded-pill">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<%- include ('partials/footer.ejs') %>

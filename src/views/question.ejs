@@ -1,0 +1,66 @@
+<%- include ('partials/header.ejs') %>
+
+<body>
+
+    <%- include ('partials/navbar.ejs') %>
+
+    <div class="container"> 
+
+        <hr>
+        <h2 class="text-center">Pergunta</h2>
+        <hr>
+
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="card mb-2" style="border-radius: 64px;">
+                    <div class="card-body">
+                        <h3 class="text-center"><%= question.titulo %></h3>
+                    </div>
+                    <div class="card-footer" style="border-bottom-left-radius: 64px; border-bottom-right-radius: 64px;">
+                        <p class="text-center mt-3"><%= question.descricao %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <h2 class="text-center mt-5">| Responda |</h2>
+        
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-12 col-md-6">
+
+                <form method="post" action="/save_answer">
+                    <textarea placeholder="Digite sua resposta" class="form-control mt-5" name="corpo" style="border-radius: 40px;"></textarea>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary rounded-pill mt-3 mb-5">Enviar</button>
+                    </div>
+                    <input type="text" name="perguntaId" value="<%= question.id %>" hidden>
+                </form>
+                
+            </div>
+
+        </div>
+
+
+        <hr>
+        <h2  class="text-center">Respostas</h2>
+        <hr>
+
+        <% answers.forEach((answer) => { %>
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 col-md-6">
+                    <div class="card mb-2 rounded-pill">
+                        <div class="card-body">
+                            <p class="text-center mt-3"> <%= answer.corpo %> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+</body>
+
+<%- include ('partials/footer.ejs') %>
